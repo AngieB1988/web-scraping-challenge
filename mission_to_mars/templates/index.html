@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission To Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<div<div class="container">
+    <div class="jumbotron text-center" 
+        style = "background-image: url(https://marshemispheres.com/images/full.jpg);">
+    <h1>Mission To Mars</h1>
+    
+    <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div> 
+  
+    <h1>Mission To Mars</h1>
+
+
+        <div class="row">
+            <div class="col-md-12 border">
+                <h2>Latest Mars News</h2>
+                <hr>
+                <h4>{{ Latest Mars News }}</h4>
+                <p>{{ Using an online tool to label Martian terrain types, you can trainan artificial algorithm that could improve the way enineers guide the curiosity rover[] }}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7 col-md-12 border">
+                <h2>Mars Featured Image</h2>
+                <hr>
+                <p>
+                    <img src="https://spaceimages-mars.com/image/featured/mars3.jpg" alt="Mars Featured Image">
+                </p>
+            </div>
+            <div class="col-lg-5 col-md-12 border">
+                <h2>Mars Facts</h2>
+                <hr>
+                <div align="center">
+                    {{ mars_data.fact_table | safe }}
+                    <img src="C://Users//Angiescomputer//Desktop//mission_to_mars//templates//table.html" alt="Mars Featured Image">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Mars Hemispheres</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row border">
+            <!-- Loop through each hemisphere dictionary -->
+            {% for hemisphere in mars_data.hemisphere_images %}
+            <div class="col-lg-3 col-md-12 border">
+                <div align="center">
+                    <a href="{{ hemisphere.img_url }}" target="_blank">
+                        <img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" width="400px">
+                    </a>
+                </div>
+                <div>
+                    <h3>{{ hemisphere.title }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>  
+  
+    </div>
+
+</body>
+
+</html>
